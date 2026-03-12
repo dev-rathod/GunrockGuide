@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GunrockGuide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --aggie-blue: #002855;
+      --aggie-gold: #C99700;
+      --gold-light: #f0c84a;
+      --cream: #F9F5EC;
+      --dark: #0a0f1c;
+      --mid: #1a2540;
+      --text: #e8e0d0;
+      --muted: #8a9ab5;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 3rem;
+      background: rgba(10,15,28,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,151,0,0.15);
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      color: var(--gold-light);
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: linear-gradient(var(--aggie-gold) 1px, transparent 1px),
+                        linear-gradient(90deg, var(--aggie-gold) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-glow {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,151,0,0.12) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--aggie-gold);
+      border: 1px solid rgba(201,151,0,0.4);
+      padding: 0.4rem 1.2rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.8s ease both;
+    }
+    h1.hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 14vw, 12rem);
+      line-height: 0.9;
+      letter-spacing: 4px;
+      background: linear-gradient(135deg, #ffffff 30%, var(--gold-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+    .hero-sub {
+      margin-top: 1.5rem;
+      font-size: 1rem; font-weight: 300; letter-spacing: 0.5px;
+      color: var(--muted); max-width: 480px;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+    .hero-team {
+      margin-top: 2.5rem;
+      display: flex; gap: 1rem; align-items: center;
+      animation: fadeUp 0.8s 0.45s ease both;
+    }
+    .member-chip {
+      display: flex; align-items: center; gap: 0.6rem;
+      background: rgba(201,151,0,0.08);
+      border: 1px solid rgba(201,151,0,0.25);
+      padding: 0.5rem 1.2rem; border-radius: 100px;
+    }
+    .member-avatar {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--aggie-blue), var(--aggie-gold));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; color: white;
+    }
+    .member-name { font-size: 0.85rem; font-weight: 500; }
+    .hero-scroll {
+      position: absolute; bottom: 2rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: var(--muted); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+      animation: fadeUp 1s 0.8s ease both;
+    }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--aggie-gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--aggie-gold); margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      letter-spacing: 2px;
+      line-height: 1;
+      margin-bottom: 2rem;
+    }
+    .section-divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(to right, var(--aggie-gold), transparent);
+      margin-bottom: 2rem;
+    }
+
+    /* ── DESCRIPTION ── */
+    #description .desc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .desc-text p {
+      font-size: 1.05rem; line-height: 1.8; color: #b0bfd4;
+      margin-bottom: 1.2rem;
+    }
+    .feature-list {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .feature-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 1.2rem 1.5rem; border-radius: 8px;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .feature-item:hover {
+      border-color: rgba(201,151,0,0.3);
+      background: rgba(201,151,0,0.04);
+    }
+    .feature-icon {
+      font-size: 1.4rem; flex-shrink: 0; margin-top: 2px;
+    }
+    .feature-item h4 { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.2rem; }
+    .feature-item p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; margin: 0; }
+
+    /* ── PROTOTYPE / PICTURES ── */
+    #prototype { background: none; }
+    .proto-full { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; }
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .media-card {
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--mid);
+      border: 1px solid rgba(255,255,255,0.06);
+      aspect-ratio: 16/10;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      transition: transform 0.3s, border-color 0.3s;
+      cursor: pointer;
+    }
+    .media-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201,151,0,0.4);
+    }
+    .media-card.large {
+      grid-column: span 2;
+      aspect-ratio: 16/8;
+    }
+    .media-placeholder {
+      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+      color: var(--muted);
+    }
+    .media-placeholder .icon { font-size: 2.5rem; opacity: 0.4; }
+    .media-placeholder span { font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; }
+    .upload-hint {
+      margin-top: 1.5rem;
+      font-size: 0.8rem; color: var(--muted);
+      font-family: 'Space Mono', monospace;
+      padding: 0.75rem 1.5rem;
+      border: 1px dashed rgba(201,151,0,0.3);
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    /* demo video embed area */
+    .demo-embed {
+      margin-top: 2.5rem;
+      aspect-ratio: 16/9;
+      background: var(--mid);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .demo-embed iframe {
+      width: 100%; height: 100%; border: none;
+    }
+    .play-btn {
+      width: 70px; height: 70px; border-radius: 50%;
+      background: var(--aggie-gold);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+      box-shadow: 0 0 40px rgba(201,151,0,0.4);
+    }
+    .play-btn:hover { transform: scale(1.1); background: var(--gold-light); }
+    .demo-label {
+      position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+      font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── JOURNEY ── */
+    #journey { position: relative; }
+    .timeline {
+      position: relative;
+      margin-top: 3rem;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--aggie-gold), transparent);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      padding-left: 2.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    .timeline-dot {
+      position: absolute; left: -2.65rem; top: 0.2rem;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--aggie-gold);
+      border: 2px solid var(--dark);
+      box-shadow: 0 0 12px rgba(201,151,0,0.5);
+    }
+    .timeline-phase {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--aggie-gold); margin-bottom: 0.4rem;
+    }
+    .timeline-item h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem; letter-spacing: 1px; margin-bottom: 0.5rem;
+    }
+    .timeline-item p { font-size: 0.9rem; color: #8a9ab5; line-height: 1.7; max-width: 580px; }
+
+    /* ── AWS ── */
+    #aws .aws-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;
+    }
+    .aws-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 2rem;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .aws-card:hover {
+      border-color: rgba(201,151,0,0.3);
+      background: rgba(201,151,0,0.03);
+    }
+    .aws-card-header {
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem;
+    }
+    .aws-icon {
+      width: 44px; height: 44px; border-radius: 8px;
+      background: linear-gradient(135deg, #FF9900, #FFB74D);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .aws-card h3 { font-size: 1rem; font-weight: 500; }
+    .aws-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+    .aws-badge {
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 1.5px;
+      color: #FF9900;
+      background: rgba(255,153,0,0.08);
+      border: 1px solid rgba(255,153,0,0.2);
+      padding: 0.25rem 0.75rem; border-radius: 3px;
+    }
+
+    /* ── TEAM ── */
+    #team {
+      padding: 6rem 2rem;
+      max-width: 1100px; margin: 0 auto;
+      text-align: center;
+    }
+    .team-cards {
+      display: flex; justify-content: center; gap: 2.5rem;
+      margin-top: 3rem; flex-wrap: wrap;
+    }
+    .team-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      width: 220px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .team-card:hover { transform: translateY(-6px); border-color: rgba(201,151,0,0.35); }
+    .team-avatar {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--aggie-blue) 0%, var(--aggie-gold) 100%);
+      margin: 0 auto 1.2rem;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: white;
+      box-shadow: 0 0 30px rgba(201,151,0,0.25);
+    }
+    .team-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 1px; }
+    .team-card p { font-size: 0.8rem; color: var(--muted); margin-top: 0.4rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center; padding: 3rem 2rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      color: var(--muted); font-size: 0.8rem;
+    }
+    footer span { color: var(--aggie-gold); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ── OBSERVE FADE IN ── */
+    .fade-in {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1; transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      #description .desc-grid, .aws-grid { grid-template-columns: 1fr; }
+      .media-grid { grid-template-columns: 1fr; }
+      .media-card.large { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">GunrockGuide</div>
+    <ul class="nav-links">
+      <li><a href="#description">About</a></li>
+      <li><a href="#prototype">Demo</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#aws">AWS</a></li>
+      <li><a href="#team">Team</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-badge">EEC 172 · Final Project · UC Davis</div>
+    <h1 class="hero-title">Gunrock<br>Guide</h1>
+    <p class="hero-sub">Never get lost on campus again. Real-time indoor navigation designed for UC Davis students.</p>
+    <div class="hero-team">
+      <div class="member-chip">
+        <div class="member-avatar">A</div>
+        <span class="member-name">Amal Afsal</span>
+      </div>
+      <div class="member-chip">
+        <div class="member-avatar">D</div>
+        <span class="member-name">Dev Rathod</span>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- DESCRIPTION -->
+  <section id="description">
+    <div class="fade-in">
+      <div class="section-label">01 — About the Project</div>
+      <h2 class="section-title">What is<br>GunrockGuide?</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="desc-grid fade-in">
+      <div class="desc-text">
+        <p>
+          GunrockGuide is an embedded systems navigation tool built to solve a real problem every UC Davis student faces — getting lost in the sprawling academic buildings on campus.
+        </p>
+        <p>
+          Using a combination of sensors, microcontrollers, and wireless communication, GunrockGuide provides step-by-step directional guidance to help you find any room on campus without pulling out your phone.
+        </p>
+        <p>
+          Built as the EEC 172 final project, every component — from hardware design to cloud integration — was engineered from scratch by Amal and Dev.
+        </p>
+      </div>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon">📍</div>
+          <div>
+            <h4>Real-Time Navigation</h4>
+            <p>Turn-by-turn directions to any room number on campus using embedded sensor data.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📡</div>
+          <div>
+            <h4>Wireless Connectivity</h4>
+            <p>Communicates over Wi-Fi to fetch map data and user destinations on demand.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🖥️</div>
+          <div>
+            <h4>Embedded Display</h4>
+            <p>Compact OLED display shows directions and current location at a glance.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">☁️</div>
+          <div>
+            <h4>Cloud Backend</h4>
+            <p>AWS powers the routing logic and stores building floor plans for instant lookup.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROTOTYPE & PICTURES -->
+  <div class="proto-full" id="prototype">
+    <div class="fade-in">
+      <div class="section-label">02 — Demo & Media</div>
+      <h2 class="section-title">Prototype<br>Demonstration</h2>
+      <div class="section-divider"></div>
+      <p style="color:var(--muted); max-width:520px; font-size:0.9rem; line-height:1.8;">
+        See GunrockGuide in action. Below is a walkthrough of the physical prototype alongside screenshots from the system.
+      </p>
+    </div>
+
+    <!-- Video demo area -->
+    <div class="demo-embed fade-in">
+      <!-- Replace the src with your actual demo video URL e.g. YouTube embed -->
+      <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe> -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
+        <div class="play-btn">▶</div>
+        <span style="font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Demo Video — Replace with YouTube Embed</span>
+      </div>
+    </div>
+
+    <!-- Image grid -->
+    <div class="media-grid fade-in" style="margin-top:2.5rem;">
+      <div class="media-card large">
+        <!-- <img src="your-image.jpg" style="width:100%;height:100%;object-fit:cover;" alt="Prototype overview"> -->
+        <div class="media-placeholder">
+          <div class="icon">🖼️</div>
+          <span>Prototype Overview — Add Image</span>
+        </div>
+      </div>
+      <div class="media-card">
+        <div class="media-placeholder">
+          <div class="icon">🔧</div>
+          <span>Hardware Close-up</span>
+        </div>
+      </div>
+      <div class="media-card">
+        <div class="media-placeholder">
+          <div class="icon">📟</div>
+          <span>Display Screenshot</span>
+        </div>
+      </div>
+      <div class="media-card">
+        <div class="media-placeholder">
+          <div class="icon">🗺️</div>
+          <span>Map Interface</span>
+        </div>
+      </div>
+    </div>
+    <div class="upload-hint">💡 To add images: replace the placeholder divs above with &lt;img&gt; tags pointing to your image files</div>
+  </div>
+
+  <!-- JOURNEY -->
+  <section id="journey">
+    <div class="fade-in">
+      <div class="section-label">03 — Development Story</div>
+      <h2 class="section-title">Our<br>Journey</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="timeline fade-in">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Phase 1</div>
+        <h3>Problem Discovery</h3>
+        <p>We both experienced the frustration of being late to class because buildings like Kemper and Bainer are impossible to navigate. We decided to solve it with embedded systems.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Phase 2</div>
+        <h3>Hardware Design</h3>
+        <p>Selected the CC3200 microcontroller for its built-in Wi-Fi capabilities. Designed the circuit schematic, chose sensors, and prototyped the OLED display interface.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Phase 3</div>
+        <h3>Software & Routing</h3>
+        <p>Implemented pathfinding algorithms in C on the embedded device and built the AWS Lambda backend to serve building map data as JSON over HTTPS.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Phase 4</div>
+        <h3>Integration & Testing</h3>
+        <p>Brought hardware and software together. Ran live navigation tests inside Kemper Hall — successfully guided us from the entrance to Room 1150 on the first try.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Phase 5</div>
+        <h3>Final Demo</h3>
+        <p>Polished the user interface, documented the system, and presented GunrockGuide as our EEC 172 final project. Future work: expand to more buildings and add voice output.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AWS -->
+  <section id="aws">
+    <div class="fade-in">
+      <div class="section-label">04 — Cloud Infrastructure</div>
+      <h2 class="section-title">AWS<br>Integration</h2>
+      <div class="section-divider"></div>
+      <p style="color:var(--muted); max-width:520px; font-size:0.9rem; line-height:1.8; margin-bottom:2rem;">
+        GunrockGuide's cloud backend is built on Amazon Web Services, enabling real-time data delivery to the embedded device over a lightweight REST API.
+      </p>
+    </div>
+
+    <div class="aws-grid fade-in">
+      <div class="aws-card">
+        <div class="aws-card-header">
+          <div class="aws-icon">λ</div>
+          <h3>AWS Lambda</h3>
+        </div>
+        <p>Serverless functions handle routing requests from the device. When a room number is entered, Lambda computes the path and returns step-by-step directions as JSON.</p>
+        <span class="aws-badge">Serverless Functions</span>
+      </div>
+      <div class="aws-card">
+        <div class="aws-card-header">
+          <div class="aws-icon">🗄</div>
+          <h3>Amazon DynamoDB</h3>
+        </div>
+        <p>Building maps and room-to-node mappings are stored in DynamoDB. Fast key-value lookups ensure the embedded device gets its response in under 300ms.</p>
+        <span class="aws-badge">NoSQL Database</span>
+      </div>
+      <div class="aws-card">
+        <div class="aws-card-header">
+          <div class="aws-icon">🔗</div>
+          <h3>API Gateway</h3>
+        </div>
+        <p>Exposes a secure HTTPS endpoint that the CC3200 calls over Wi-Fi. Handles authentication, rate limiting, and routes requests to the appropriate Lambda function.</p>
+        <span class="aws-badge">REST API</span>
+      </div>
+      <div class="aws-card">
+        <div class="aws-card-header">
+          <div class="aws-icon">🪣</div>
+          <h3>Amazon S3</h3>
+        </div>
+        <p>Floor plan images and static assets for the web interface are hosted in S3 buckets with CloudFront CDN delivery for low-latency access from anywhere on campus.</p>
+        <span class="aws-badge">Object Storage</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team">
+    <div class="fade-in">
+      <div class="section-label">05 — The Builders</div>
+      <h2 class="section-title">Meet the Team</h2>
+      <div class="section-divider" style="margin: 0 auto 2rem;"></div>
+    </div>
+    <div class="team-cards fade-in">
+      <div class="team-card">
+        <div class="team-avatar">A</div>
+        <h3>Amal Afsal</h3>
+        <p>Embedded Systems & Hardware Design</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">D</div>
+        <h3>Dev Rathod</h3>
+        <p>Software & Cloud Integration</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Built with ❤️ by <span>Amal & Dev</span> · EEC 172 Final Project · UC Davis</p>
+    <p style="margin-top:0.5rem; font-size:0.7rem;">GunrockGuide — Never Get Lost Again</p>
+  </footer>
+
+  <script>
+    // Scroll-triggered fade-ins
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
