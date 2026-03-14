@@ -18,9 +18,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--dark);
@@ -38,358 +36,103 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(201,151,0,0.15);
     }
-    .nav-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem;
-      letter-spacing: 2px;
-      color: var(--gold-light);
-    }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 2px; color: var(--gold-light); }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--muted); text-decoration: none;
-      transition: color 0.2s;
-    }
+    .nav-links a { font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--gold-light); }
 
     /* ── HERO ── */
     #hero {
       min-height: 100vh;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center;
-      padding: 6rem 2rem 4rem;
-      position: relative;
-      overflow: hidden;
+      text-align: center; padding: 6rem 2rem 4rem;
+      position: relative; overflow: hidden;
     }
-    .hero-grid {
-      position: absolute; inset: 0; opacity: 0.04;
-      background-image: linear-gradient(var(--aggie-gold) 1px, transparent 1px),
-                        linear-gradient(90deg, var(--aggie-gold) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-    .hero-glow {
-      position: absolute;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,151,0,0.12) 0%, transparent 70%);
-      top: 50%; left: 50%; transform: translate(-50%, -50%);
-      pointer-events: none;
-    }
-    .hero-badge {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--aggie-gold);
-      border: 1px solid rgba(201,151,0,0.4);
-      padding: 0.4rem 1.2rem;
-      border-radius: 2px;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.8s ease both;
-    }
-    h1.hero-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(5rem, 14vw, 12rem);
-      line-height: 0.9;
-      letter-spacing: 4px;
-      background: linear-gradient(135deg, #ffffff 30%, var(--gold-light) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: fadeUp 0.8s 0.15s ease both;
-    }
-    .hero-sub {
-      margin-top: 1.5rem;
-      font-size: 1rem; font-weight: 300; letter-spacing: 0.5px;
-      color: var(--muted); max-width: 480px;
-      animation: fadeUp 0.8s 0.3s ease both;
-    }
-    .hero-team {
-      margin-top: 2.5rem;
-      display: flex; gap: 1rem; align-items: center;
-      animation: fadeUp 0.8s 0.45s ease both;
-    }
-    .member-chip {
-      display: flex; align-items: center; gap: 0.6rem;
-      background: rgba(201,151,0,0.08);
-      border: 1px solid rgba(201,151,0,0.25);
-      padding: 0.5rem 1.2rem; border-radius: 100px;
-    }
-    .member-avatar {
-      width: 32px; height: 32px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--aggie-blue), var(--aggie-gold));
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; color: white;
-    }
+    .hero-grid { position: absolute; inset: 0; opacity: 0.04; background-image: linear-gradient(var(--aggie-gold) 1px, transparent 1px), linear-gradient(90deg, var(--aggie-gold) 1px, transparent 1px); background-size: 60px 60px; }
+    .hero-glow { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(201,151,0,0.12) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
+    .hero-badge { font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--aggie-gold); border: 1px solid rgba(201,151,0,0.4); padding: 0.4rem 1.2rem; border-radius: 2px; margin-bottom: 1.5rem; animation: fadeUp 0.8s ease both; }
+    h1.hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(5rem,14vw,12rem); line-height: 0.9; letter-spacing: 4px; background: linear-gradient(135deg,#ffffff 30%,var(--gold-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: fadeUp 0.8s 0.15s ease both; }
+    .hero-sub { margin-top: 1.5rem; font-size: 1rem; font-weight: 300; letter-spacing: 0.5px; color: var(--muted); max-width: 480px; animation: fadeUp 0.8s 0.3s ease both; }
+    .hero-team { margin-top: 2.5rem; display: flex; gap: 1rem; align-items: center; animation: fadeUp 0.8s 0.45s ease both; }
+    .member-chip { display: flex; align-items: center; gap: 0.6rem; background: rgba(201,151,0,0.08); border: 1px solid rgba(201,151,0,0.25); padding: 0.5rem 1.2rem; border-radius: 100px; }
+    .member-avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg,var(--aggie-blue),var(--aggie-gold)); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; color: white; }
     .member-name { font-size: 0.85rem; font-weight: 500; }
-    .hero-scroll {
-      position: absolute; bottom: 2rem;
-      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-      color: var(--muted); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
-      animation: fadeUp 1s 0.8s ease both;
-    }
-    .scroll-line {
-      width: 1px; height: 40px;
-      background: linear-gradient(to bottom, var(--aggie-gold), transparent);
-      animation: scrollPulse 2s ease-in-out infinite;
-    }
+    .hero-scroll { position: absolute; bottom: 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--muted); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; animation: fadeUp 1s 0.8s ease both; }
+    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom,var(--aggie-gold),transparent); animation: scrollPulse 2s ease-in-out infinite; }
 
     /* ── SECTIONS ── */
-    section {
-      padding: 6rem 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .section-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase;
-      color: var(--aggie-gold); margin-bottom: 0.75rem;
-    }
-    .section-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      letter-spacing: 2px;
-      line-height: 1;
-      margin-bottom: 2rem;
-    }
-    .section-divider {
-      width: 60px; height: 3px;
-      background: linear-gradient(to right, var(--aggie-gold), transparent);
-      margin-bottom: 2rem;
-    }
+    section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .section-label { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase; color: var(--aggie-gold); margin-bottom: 0.75rem; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem,6vw,4.5rem); letter-spacing: 2px; line-height: 1; margin-bottom: 2rem; }
+    .section-divider { width: 60px; height: 3px; background: linear-gradient(to right,var(--aggie-gold),transparent); margin-bottom: 2rem; }
 
     /* ── DESCRIPTION ── */
-    #description .desc-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-    .desc-text p {
-      font-size: 1.05rem; line-height: 1.8; color: #b0bfd4;
-      margin-bottom: 1.2rem;
-    }
-    .feature-list {
-      display: flex; flex-direction: column; gap: 1rem;
-    }
-    .feature-item {
-      display: flex; align-items: flex-start; gap: 1rem;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.06);
-      padding: 1.2rem 1.5rem; border-radius: 8px;
-      transition: border-color 0.3s, background 0.3s;
-    }
-    .feature-item:hover {
-      border-color: rgba(201,151,0,0.3);
-      background: rgba(201,151,0,0.04);
-    }
-    .feature-icon {
-      font-size: 1.4rem; flex-shrink: 0; margin-top: 2px;
-    }
+    #description .desc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .desc-text p { font-size: 1.05rem; line-height: 1.8; color: #b0bfd4; margin-bottom: 1.2rem; }
+    .feature-list { display: flex; flex-direction: column; gap: 1rem; }
+    .feature-item { display: flex; align-items: flex-start; gap: 1rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 1.2rem 1.5rem; border-radius: 8px; transition: border-color 0.3s,background 0.3s; }
+    .feature-item:hover { border-color: rgba(201,151,0,0.3); background: rgba(201,151,0,0.04); }
+    .feature-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
     .feature-item h4 { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.2rem; }
     .feature-item p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; margin: 0; }
 
-    /* ── PROTOTYPE / PICTURES ── */
+    /* ── PROTOTYPE ── */
     #prototype { background: none; }
     .proto-full { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; }
-    .media-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .media-card {
-      border-radius: 10px;
-      overflow: hidden;
-      background: var(--mid);
-      border: 1px solid rgba(255,255,255,0.06);
-      aspect-ratio: 16/10;
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-      transition: transform 0.3s, border-color 0.3s;
-      cursor: pointer;
-    }
-    .media-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(201,151,0,0.4);
-    }
-    .media-card.large {
-      grid-column: span 2;
-      aspect-ratio: 16/8;
-    }
-    .media-placeholder {
-      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
-      color: var(--muted);
-    }
+    .media-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; margin-top: 2rem; }
+    .media-card { border-radius: 10px; overflow: hidden; background: var(--mid); border: 1px solid rgba(255,255,255,0.06); aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; position: relative; transition: transform 0.3s,border-color 0.3s; cursor: pointer; }
+    .media-card:hover { transform: translateY(-4px); border-color: rgba(201,151,0,0.4); }
+    .media-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .media-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; color: var(--muted); }
     .media-placeholder .icon { font-size: 2.5rem; opacity: 0.4; }
     .media-placeholder span { font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; }
-    .upload-hint {
-      margin-top: 1.5rem;
-      font-size: 0.8rem; color: var(--muted);
-      font-family: 'Space Mono', monospace;
-      padding: 0.75rem 1.5rem;
-      border: 1px dashed rgba(201,151,0,0.3);
-      border-radius: 6px;
-      display: inline-block;
-    }
-
-    /* demo video embed area */
-    .demo-embed {
-      margin-top: 2.5rem;
-      aspect-ratio: 16/9;
-      background: var(--mid);
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.08);
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
-      position: relative;
-    }
-    .demo-embed iframe {
-      width: 100%; height: 100%; border: none;
-    }
-    .play-btn {
-      width: 70px; height: 70px; border-radius: 50%;
-      background: var(--aggie-gold);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; cursor: pointer;
-      transition: transform 0.2s, background 0.2s;
-      box-shadow: 0 0 40px rgba(201,151,0,0.4);
-    }
-    .play-btn:hover { transform: scale(1.1); background: var(--gold-light); }
-    .demo-label {
-      position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
-      font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
-      color: var(--muted);
-    }
+    .demo-embed { margin-top: 2.5rem; aspect-ratio: 16/9; background: var(--mid); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+    .demo-embed iframe { width: 100%; height: 100%; border: none; }
 
     /* ── JOURNEY ── */
     #journey { position: relative; }
-    .timeline {
-      position: relative;
-      margin-top: 3rem;
-      padding-left: 2rem;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute; left: 0; top: 0; bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--aggie-gold), transparent);
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 3rem;
-      padding-left: 2.5rem;
-      animation: fadeUp 0.6s ease both;
-    }
-    .timeline-dot {
-      position: absolute; left: -2.65rem; top: 0.2rem;
-      width: 14px; height: 14px; border-radius: 50%;
-      background: var(--aggie-gold);
-      border: 2px solid var(--dark);
-      box-shadow: 0 0 12px rgba(201,151,0,0.5);
-    }
-    .timeline-phase {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--aggie-gold); margin-bottom: 0.4rem;
-    }
-    .timeline-item h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem; letter-spacing: 1px; margin-bottom: 0.5rem;
-    }
+    .timeline { position: relative; margin-top: 3rem; padding-left: 2rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom,var(--aggie-gold),transparent); }
+    .timeline-item { position: relative; margin-bottom: 3rem; padding-left: 2.5rem; animation: fadeUp 0.6s ease both; }
+    .timeline-dot { position: absolute; left: -2.65rem; top: 0.2rem; width: 14px; height: 14px; border-radius: 50%; background: var(--aggie-gold); border: 2px solid var(--dark); box-shadow: 0 0 12px rgba(201,151,0,0.5); }
+    .timeline-phase { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: var(--aggie-gold); margin-bottom: 0.4rem; }
+    .timeline-item h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 1px; margin-bottom: 0.5rem; }
     .timeline-item p { font-size: 0.9rem; color: #8a9ab5; line-height: 1.7; max-width: 580px; }
 
     /* ── AWS ── */
-    #aws .aws-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;
-    }
-    .aws-card {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 10px;
-      padding: 2rem;
-      transition: border-color 0.3s, background 0.3s;
-    }
-    .aws-card:hover {
-      border-color: rgba(201,151,0,0.3);
-      background: rgba(201,151,0,0.03);
-    }
-    .aws-card-header {
-      display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem;
-    }
-    .aws-icon {
-      width: 44px; height: 44px; border-radius: 8px;
-      background: linear-gradient(135deg, #FF9900, #FFB74D);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; flex-shrink: 0;
-    }
+    #aws .aws-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+    .aws-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 2rem; transition: border-color 0.3s,background 0.3s; }
+    .aws-card:hover { border-color: rgba(201,151,0,0.3); background: rgba(201,151,0,0.03); }
+    .aws-card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
+    .aws-icon { width: 44px; height: 44px; border-radius: 8px; background: linear-gradient(135deg,#FF9900,#FFB74D); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
     .aws-card h3 { font-size: 1rem; font-weight: 500; }
     .aws-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
-    .aws-badge {
-      display: inline-block;
-      margin-top: 1rem;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem; letter-spacing: 1.5px;
-      color: #FF9900;
-      background: rgba(255,153,0,0.08);
-      border: 1px solid rgba(255,153,0,0.2);
-      padding: 0.25rem 0.75rem; border-radius: 3px;
-    }
+    .aws-badge { display: inline-block; margin-top: 1rem; font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 1.5px; color: #FF9900; background: rgba(255,153,0,0.08); border: 1px solid rgba(255,153,0,0.2); padding: 0.25rem 0.75rem; border-radius: 3px; }
 
     /* ── TEAM ── */
-    #team {
-      padding: 6rem 2rem;
-      max-width: 1100px; margin: 0 auto;
-      text-align: center;
-    }
-    .team-cards {
-      display: flex; justify-content: center; gap: 2.5rem;
-      margin-top: 3rem; flex-wrap: wrap;
-    }
-    .team-card {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      width: 220px;
-      transition: transform 0.3s, border-color 0.3s;
-    }
+    #team { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; text-align: center; }
+    .team-cards { display: flex; justify-content: center; gap: 2.5rem; margin-top: 3rem; flex-wrap: wrap; }
+    .team-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; padding: 2.5rem 2rem; width: 240px; transition: transform 0.3s,border-color 0.3s; }
     .team-card:hover { transform: translateY(-6px); border-color: rgba(201,151,0,0.35); }
-    .team-avatar {
-      width: 72px; height: 72px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--aggie-blue) 0%, var(--aggie-gold) 100%);
-      margin: 0 auto 1.2rem;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: white;
-      box-shadow: 0 0 30px rgba(201,151,0,0.25);
-    }
+    .team-avatar { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg,var(--aggie-blue) 0%,var(--aggie-gold) 100%); margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: white; box-shadow: 0 0 30px rgba(201,151,0,0.25); }
     .team-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 1px; }
-    .team-card p { font-size: 0.8rem; color: var(--muted); margin-top: 0.4rem; }
+    .team-card .role { font-size: 0.8rem; color: var(--muted); margin-top: 0.4rem; margin-bottom: 1.2rem; }
+
+    /* Contact links */
+    .contact-links { display: flex; justify-content: center; gap: 0.6rem; margin-top: 0.75rem; flex-wrap: wrap; }
+    .contact-link { display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-family: 'Space Mono', monospace; color: var(--muted); text-decoration: none; border: 1px solid rgba(255,255,255,0.1); padding: 0.35rem 0.8rem; border-radius: 4px; transition: color 0.2s,border-color 0.2s,background 0.2s; }
+    .contact-link:hover { color: var(--gold-light); border-color: rgba(201,151,0,0.4); background: rgba(201,151,0,0.06); }
+    .contact-link svg { width: 13px; height: 13px; fill: currentColor; flex-shrink: 0; }
 
     /* ── FOOTER ── */
-    footer {
-      text-align: center; padding: 3rem 2rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      color: var(--muted); font-size: 0.8rem;
-    }
+    footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--muted); font-size: 0.8rem; }
     footer span { color: var(--aggie-gold); }
 
     /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    /* ── OBSERVE FADE IN ── */
-    .fade-in {
-      opacity: 0; transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-in.visible {
-      opacity: 1; transform: translateY(0);
-    }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes scrollPulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+    .fade-in { opacity:0; transform:translateY(30px); transition:opacity 0.7s ease,transform 0.7s ease; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
@@ -397,7 +140,6 @@
       .nav-links { display: none; }
       #description .desc-grid, .aws-grid { grid-template-columns: 1fr; }
       .media-grid { grid-template-columns: 1fr; }
-      .media-card.large { grid-column: span 1; }
     }
   </style>
 </head>
@@ -448,10 +190,10 @@
     <div class="desc-grid fade-in">
       <div class="desc-text">
         <p>
-          GunrockGuide is an embedded systems navigation tool built to solve a real problem every UC Davis student faces — getting lost in the sprawling academic buildings on campus.
+          GunrockGuide is an embedded systems navigation tool built to solve a real problem every UC Davis student faces — getting lost inside Kemper Hall's sprawling corridors.
         </p>
         <p>
-          Using a combination of sensors, microcontrollers, and wireless communication, GunrockGuide provides step-by-step directional guidance to help you find any room on campus without pulling out your phone.
+          Using a GPS module, IR receiver, and OLED display connected to a CC3200 microcontroller, you type in your destination room number using a remote. The device sends your GPS coordinates to AWS Lambda, which computes the shortest path and emails you a custom map image showing exactly how to get there.
         </p>
         <p>
           Built as the EEC 172 final project, every component — from hardware design to cloud integration — was engineered from scratch by Amal and Dev.
@@ -461,29 +203,29 @@
         <div class="feature-item">
           <div class="feature-icon">📍</div>
           <div>
-            <h4>Real-Time Navigation</h4>
-            <p>Turn-by-turn directions to any room number on campus using embedded sensor data.</p>
+            <h4>GPS-Based Positioning</h4>
+            <p>A GPS module captures your exact location and sends coordinates to AWS so the system knows where you are inside Kemper Hall.</p>
           </div>
         </div>
         <div class="feature-item">
-          <div class="feature-icon">📡</div>
+          <div class="feature-icon">🔢</div>
           <div>
-            <h4>Wireless Connectivity</h4>
-            <p>Communicates over Wi-Fi to fetch map data and user destinations on demand.</p>
+            <h4>IR Remote Input</h4>
+            <p>Type your destination room number on the OLED screen using an IR receiver and remote — no phone or touchscreen needed.</p>
           </div>
         </div>
         <div class="feature-item">
-          <div class="feature-icon">🖥️</div>
+          <div class="feature-icon">✉️</div>
           <div>
-            <h4>Embedded Display</h4>
-            <p>Compact OLED display shows directions and current location at a glance.</p>
+            <h4>Email Path Delivery</h4>
+            <p>After submitting your request you receive an email with a custom S3-hosted map image. Green dot = you, red dot = destination, with the route drawn between them.</p>
           </div>
         </div>
         <div class="feature-item">
           <div class="feature-icon">☁️</div>
           <div>
             <h4>Cloud Backend</h4>
-            <p>AWS powers the routing logic and stores building floor plans for instant lookup.</p>
+            <p>AWS Lambda handles all routing logic and generates the path image on demand, served instantly via Amazon S3.</p>
           </div>
         </div>
       </div>
@@ -497,51 +239,34 @@
       <h2 class="section-title">Prototype<br>Demonstration</h2>
       <div class="section-divider"></div>
       <p style="color:var(--muted); max-width:520px; font-size:0.9rem; line-height:1.8;">
-        See GunrockGuide in action. Below is a walkthrough of the physical prototype alongside screenshots from the system.
+        See GunrockGuide in action. Below is a live walkthrough filmed inside Kemper Hall, alongside images of the physical prototype and map output.
       </p>
     </div>
-
-    <!-- Video demo area -->
     <div class="demo-embed fade-in">
-      <iframe 
-        src="https://www.youtube.com/embed/xSf1XoFuTts" 
-        title="GunrockGuide Demo" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      <iframe
+        src="https://www.youtube.com/embed/xSf1XoFuTts"
+        title="GunrockGuide Demo"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
       </iframe>
     </div>
-
-    <!-- Image grid -->
     <div class="media-grid fade-in" style="margin-top:2.5rem;">
-      <div class="media-card large">
-        <img src="/assets/hardware.jpg" style="width:100%;height:100%;object-fit:cover;" alt="Prototype overview">
+      <div class="media-card">
+        <img src="assets/hardware.jpg" alt="Prototype overview">
         <div class="media-placeholder">
           <div class="icon">🖼️</div>
-          <span>Prototype Overview — Add Image</span>
+          <span>Prototype Overview</span>
         </div>
       </div>
-      <!-- <div class="media-card">
-        <div class="media-placeholder">
-          <div class="icon">🔧</div>
-          <span>Hardware Close-up</span>
-        </div>
-      </div>-->
-      <!-- <div class="media-card">
-        <div class="media-placeholder">
-          <div class="icon">📟</div>
-          <span>Display Screenshot</span>
-        </div>
-      </div> -->
       <div class="media-card">
+        <img src="assets/sample_path.png" alt="Map interface">
         <div class="media-placeholder">
-          <img src="/assets/sample_path.jpg" style="width:100%;height:100%;object-fit:cover;" alt="Prototype overview">
           <div class="icon">🗺️</div>
           <span>Map Interface</span>
         </div>
       </div>
     </div>
-    <div class="upload-hint">💡 To add images: replace the placeholder divs above with &lt;img&gt; tags pointing to your image files</div>
   </div>
 
   <!-- JOURNEY -->
@@ -551,31 +276,30 @@
       <h2 class="section-title">Our<br>Journey</h2>
       <div class="section-divider"></div>
     </div>
-
     <div class="timeline fade-in">
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-phase">Phase 1</div>
         <h3>Problem Discovery</h3>
-        <p>We both experienced the frustration of being late to class because buildings like Kemper and Bainer are impossible to navigate. We decided to solve it with embedded systems.</p>
+        <p>We both experienced the frustration of being late to class because Kemper Hall is impossible to navigate. We decided to solve it with embedded systems.</p>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-phase">Phase 2</div>
         <h3>Hardware Design</h3>
-        <p>Selected the CC3200 microcontroller for its built-in Wi-Fi capabilities. Designed the circuit schematic, chose sensors, and prototyped the OLED display interface.</p>
+        <p>Selected the CC3200 microcontroller for its built-in Wi-Fi capabilities. Integrated a GPS module for live positioning, an IR receiver for room-number input, and an OLED display for the user interface.</p>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-phase">Phase 3</div>
         <h3>Software & Routing</h3>
-        <p>Implemented pathfinding algorithms in C on the embedded device and built the AWS Lambda backend to serve building map data as JSON over HTTPS.</p>
+        <p>Built the AWS Lambda backend to receive GPS coordinates, run pathfinding logic through Kemper Hall's floor plan, generate a route map image in S3, and trigger an email delivery to the user — all within seconds.</p>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-phase">Phase 4</div>
         <h3>Integration & Testing</h3>
-        <p>Brought hardware and software together. Ran live navigation tests inside Kemper Hall — successfully guided us from the entrance to Room 1150 on the first try.</p>
+        <p>Brought hardware and software together. Ran live tests inside Kemper Hall — typed in room 1155 using the IR remote, sent the GPS coordinates, and received the correct path image by email in seconds.</p>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
@@ -593,43 +317,47 @@
       <h2 class="section-title">AWS<br>Integration</h2>
       <div class="section-divider"></div>
       <p style="color:var(--muted); max-width:520px; font-size:0.9rem; line-height:1.8; margin-bottom:2rem;">
-        GunrockGuide's cloud backend is built on Amazon Web Services, enabling real-time data delivery to the embedded device over a lightweight REST API.
+        GunrockGuide's cloud backend is built on Amazon Web Services, enabling real-time path computation and email delivery triggered directly from the embedded device.
       </p>
     </div>
-
     <div class="aws-grid fade-in">
+
       <div class="aws-card">
         <div class="aws-card-header">
           <div class="aws-icon">λ</div>
           <h3>AWS Lambda</h3>
         </div>
-        <p>Serverless functions handle routing requests from the device. When a room number is entered, Lambda computes the path and returns step-by-step directions as JSON.</p>
+        <p>Serverless functions receive GPS coordinates and the destination room number from the CC3200. Lambda runs pathfinding logic through Kemper Hall's floor plan and generates the route map image stored in S3.</p>
         <span class="aws-badge">Serverless Functions</span>
       </div>
+
       <div class="aws-card">
         <div class="aws-card-header">
-          <div class="aws-icon">🗄</div>
-          <h3>Amazon DynamoDB</h3>
+          <div class="aws-icon">📡</div>
+          <h3>IR Receiver &amp; GPS Module</h3>
         </div>
-        <p>Building maps and room-to-node mappings are stored in DynamoDB. Fast key-value lookups ensure the embedded device gets its response in under 300ms.</p>
-        <span class="aws-badge">NoSQL Database</span>
+        <p>The IR receiver lets you type a destination room number on the OLED display using a remote. The GPS module simultaneously captures your exact coordinates and transmits them to AWS — no phone required.</p>
+        <span class="aws-badge">Real-Time Sensors</span>
       </div>
+
       <div class="aws-card">
         <div class="aws-card-header">
-          <div class="aws-icon">🔗</div>
-          <h3>API Gateway</h3>
+          <div class="aws-icon">✉️</div>
+          <h3>Email Path Delivery</h3>
         </div>
-        <p>Exposes a secure HTTPS endpoint that the CC3200 calls over Wi-Fi. Handles authentication, rate limiting, and routes requests to the appropriate Lambda function.</p>
-        <span class="aws-badge">REST API</span>
+        <p>Once Lambda computes the route, it sends you an email containing a custom S3 link. Opening it shows the Kemper Hall floor map with a green dot for your current location, a red dot for your destination, and the path drawn between them.</p>
+        <span class="aws-badge">Path Notification</span>
       </div>
+
       <div class="aws-card">
         <div class="aws-card-header">
           <div class="aws-icon">🪣</div>
           <h3>Amazon S3</h3>
         </div>
-        <p>Floor plan images and static assets for the web interface are hosted in S3 buckets with CloudFront CDN delivery for low-latency access from anywhere on campus.</p>
+        <p>Generated path images are stored in S3 and served via a unique URL included in the delivery email. Floor plan assets for the web interface are also hosted here with low-latency access from anywhere on campus.</p>
         <span class="aws-badge">Object Storage</span>
       </div>
+
     </div>
   </section>
 
@@ -641,34 +369,65 @@
       <div class="section-divider" style="margin: 0 auto 2rem;"></div>
     </div>
     <div class="team-cards fade-in">
+
+      <!-- ══════════════════════════════════════════
+           AMAL — replace the two href values below:
+             1. https://www.linkedin.com/in/AMAL-LINKEDIN-HERE
+             2. mailto:AMAL-EMAIL-HERE@example.com
+           ══════════════════════════════════════════ -->
       <div class="team-card">
         <div class="team-avatar">A</div>
         <h3>Amal Afsal</h3>
-        <p>Embedded Systems & Hardware Design</p>
+        <!-- <p class="role">Embedded Systems &amp; Hardware Design</p> -->
+        <div class="contact-links">
+          <a class="contact-link" href="https://www.linkedin.com/in/amal-afsal/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.987V9h3.102v1.561h.044c.432-.816 1.487-1.676 3.059-1.676 3.271 0 3.874 2.152 3.874 4.95v6.617zM5.337 7.433a1.8 1.8 0 1 1 0-3.601 1.8 1.8 0 0 1 0 3.601zM6.955 20.452H3.717V9h3.238v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a class="contact-link" href="mailto:asafsal@ucdavis.edu">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4V9l8 5 8-5v9z"/></svg>
+            Email
+          </a>
+        </div>
       </div>
+
       <div class="team-card">
         <div class="team-avatar">D</div>
         <h3>Dev Rathod</h3>
-        <p>Software & Cloud Integration</p>
+        <!-- <p class="role">Software &amp; Cloud Integration</p> -->
+        <div class="contact-links">
+          <a class="contact-link" href="https://www.linkedin.com/in/rathoddev/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.987V9h3.102v1.561h.044c.432-.816 1.487-1.676 3.059-1.676 3.271 0 3.874 2.152 3.874 4.95v6.617zM5.337 7.433a1.8 1.8 0 1 1 0-3.601 1.8 1.8 0 0 1 0 3.601zM6.955 20.452H3.717V9h3.238v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a class="contact-link" href="mailto:dmrathod@ucdavis.edu">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4V9l8 5 8-5v9z"/></svg>
+            Email
+          </a>
+        </div>
       </div>
+
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>Built with ❤️ by <span>Amal & Dev</span> · EEC 172 Final Project · UC Davis</p>
+    <p>Built with ❤️ by <span>Amal &amp; Dev</span> · EEC 172 Final Project · UC Davis</p>
     <p style="margin-top:0.5rem; font-size:0.7rem;">GunrockGuide — Never Get Lost Again</p>
   </footer>
 
   <script>
-    // Scroll-triggered fade-ins
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); }
-      });
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    document.querySelectorAll('.media-card img').forEach(img => {
+      const placeholder = img.nextElementSibling;
+      if (!placeholder) return;
+      if (img.complete && img.naturalWidth > 0) placeholder.style.display = 'none';
+      else img.addEventListener('load', () => placeholder.style.display = 'none');
+    });
   </script>
 </body>
 </html>
